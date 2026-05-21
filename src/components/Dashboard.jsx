@@ -48,7 +48,7 @@ export default function Dashboard({ session, logOut, addUser }) {
       {showAddUser && (
         <AddUserForm setShowAddUser={setShowAddUser} addUser={addUser} />
       )}
-      <div id="userContainer" className="max-w-7xl">
+      <div id="userContainer" className="max-w-full">
         <ul className="flex flex-col gap-4 max-w-120 mx-auto first:mt-4">
           {users.map((user) => (
             <UserCard key={user.id} user={user} />
