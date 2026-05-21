@@ -2,8 +2,8 @@ import React from "react";
 import { UserHandler } from "../utils/UserHandler";
 import { buttonClasses, userCardTextClasses } from "../css/htmlClasses";
 
-export default function UserCard({ user }) {
-  const handler = new UserHandler(user);
+export default function UserCard({ user, updateUsers }) {
+  const handler = new UserHandler({ user: user, updateUsers: updateUsers });
 
   return (
     <li className="border-2 border-gray-800/50 bg-gray-400 rounded-4xl shadow-md/70 flex flex-col gap-2 items-center justify-around py-2">
