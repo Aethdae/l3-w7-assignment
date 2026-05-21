@@ -5,7 +5,7 @@ Keep track of your users with ease using this site to track users with name, ema
 ## Installation
 
 - `npm i` to install dependencies.
-- Add an .env connected to a supabase table
+- Add an .env in the root folder connected to a supabase table:
 
 ```sql
  CREATE TABLE IF NOT EXISTS users(
