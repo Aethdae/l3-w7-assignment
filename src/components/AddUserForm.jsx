@@ -8,7 +8,7 @@ export default function AddUserForm({ setShowAddUser, addUser }) {
   const [role, setRole] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
     addUser({
       first_name: firstName,
       last_name: lastName,
@@ -19,7 +19,7 @@ export default function AddUserForm({ setShowAddUser, addUser }) {
   }
 
   return (
-    <div className="my-4 flex flex-col gap-4 max-w-80 w-full mx-auto">
+    <div className="my-4 shadow-md/80 flex flex-col gap-4 max-w-80 rounded-xl w-full mx-auto">
       <form
         className="flex flex-col gap-4 bg-sky-400 border-2 border-black px-4 py-4 rounded-xl"
         onSubmit={handleSubmit}
@@ -74,6 +74,7 @@ export default function AddUserForm({ setShowAddUser, addUser }) {
         <div id="buttonContainer" className="flex justify-around">
           <button className={buttonClasses.join(" ")}>Add User</button>
           <button
+            type="button"
             className={buttonClasses.join(" ")}
             onClick={() => {
               setShowAddUser(false);

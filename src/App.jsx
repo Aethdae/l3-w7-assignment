@@ -74,16 +74,36 @@ export default function App() {
   }
 
   useEffect(() => {
-    getUserPrevToken();
+    // getUserPrevToken();
+    async function authChange() {
+      const { data } = await supabase.auth.onAuthStateChange(
+        (event, session) => {
+          setSession(session);
+        },
+      );
+      return () => {
+        data.subscription.unsubscribe();
+      };
+    }
+    authChange();
   }, []);
 
   return (
     <main>
       <Routes>
-        <Route path="/" element={<HomePage session={session} />} />
+        <Route
+          path="/"
+          element={<HomePage logOut={logOut} session={session} />}
+        />
         <Route
           path="/login"
-          element={<Login logIn={logIn} signUp={signUp} />}
+          element={
+            session ? (
+              <Dashboard session={session} logOut={logOut} />
+            ) : (
+              <Login logIn={logIn} signUp={signUp} />
+            )
+          }
         />
         <Route
           path="/dashboard"

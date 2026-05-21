@@ -6,6 +6,11 @@ export const buttonClasses = [
   "text-white",
   "border-2",
   "rounded-2xl",
+  "hover:bg-blue-300",
+  "hover:text-black",
+  "active:bg-blue-200",
+  "active:text-black",
+  "active:scale-[90%]",
 ];
 
 export const textInputClasses = [
@@ -14,3 +19,15 @@ export const textInputClasses = [
   "border-black",
   "rounded-sm",
 ];
+
+export const userCardTextClasses = [
+  "flex gap-2",
+  "bg-orange-100",
+  "px-4",
+  "py-2",
+  "rounded-md",
+  "border-1",
+  "border-orange-400",
+];
+
+export const transitionClasses = ["duration-100", "transition-all", "delay-50"];

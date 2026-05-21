@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useLocation } from "react-router-dom";
-import { buttonClasses } from "../css/htmlClasses";
+import { buttonClasses, transitionClasses } from "../css/htmlClasses";
 import DashHeader from "./DashHeader";
 import UserCard from "./UserCard";
 import AddUserForm from "./AddUserForm";
@@ -12,6 +12,7 @@ export default function Dashboard({ session, logOut, addUser }) {
   const { state } = useLocation();
 
   async function addUser(user) {
+    //capstone: add error handling here too.
     try {
       const { data, err } = await supabase.from("users").insert(user).select();
       if (err) {
@@ -39,12 +40,16 @@ export default function Dashboard({ session, logOut, addUser }) {
 
   return (
     <div>
-      <DashHeader logOut={logOut} setShowAddUser={setShowAddUser} />
+      <DashHeader
+        logOut={logOut}
+        setShowAddUser={setShowAddUser}
+        addUser={showAddUser}
+      />
       {showAddUser && (
         <AddUserForm setShowAddUser={setShowAddUser} addUser={addUser} />
       )}
-      <div id="userContainer">
-        <ul>
+      <div id="userContainer" className="max-w-7xl">
+        <ul className="flex flex-col gap-4 max-w-120 mx-auto first:mt-4">
           {users.map((user) => (
             <UserCard key={user.id} user={user} />
           ))}

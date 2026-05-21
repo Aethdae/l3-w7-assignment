@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { buttonClasses } from "../css/htmlClasses";
+import { buttonClasses, transitionClasses } from "../css/htmlClasses";
 
-export default function DashHeader({ logOut, setShowAddUser }) {
+export default function DashHeader({ logOut, addUser, setShowAddUser }) {
   return (
     <header className="flex border-2 items-center justify-around border-t-black border-l-black border-r-black py-2">
       <h1 className="text-4xl font-bold">User Management</h1>
       <button
         onClick={() => {
-          setShowAddUser(true);
+          setShowAddUser(!addUser);
         }}
-        className={buttonClasses.join(" ")}
+        className={buttonClasses.join(" ") + " " + transitionClasses.join(" ")}
       >
         Add User
       </button>
