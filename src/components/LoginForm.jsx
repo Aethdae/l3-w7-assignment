@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { buttonClasses, textInputClasses } from "../css/htmlClasses";
 
 export default function LoginForm({ logIn, signUp }) {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ export default function LoginForm({ logIn, signUp }) {
               setEmail(e.target.value);
             }}
             value={email}
-            className="border-2 bg-gray-400/50 border-black rounded-sm"
+            className={textInputClasses.join(" ")}
             placeholder="Email"
             type="email"
             name="email"
@@ -32,7 +33,7 @@ export default function LoginForm({ logIn, signUp }) {
               setPassword(e.target.value);
             }}
             value={password}
-            className="border-2 bg-gray-400/50 border-black rounded-sm"
+            className={textInputClasses.join(" ")}
             placeholder="Password"
             type="password"
             name="password"
@@ -44,7 +45,7 @@ export default function LoginForm({ logIn, signUp }) {
             onClick={(e) => {
               signUp({ email: email, password: password });
             }}
-            className="bg-blue-800 border-black px-6 py-2 text-white border-2 rounded-2xl"
+            className={buttonClasses.join(" ")}
           >
             Sign Up
           </button>
@@ -52,7 +53,7 @@ export default function LoginForm({ logIn, signUp }) {
             onClick={(e) => {
               logIn({ email: email, password: password });
             }}
-            className="bg-blue-800 border-black px-6 py-2 text-white border-2 rounded-2xl"
+            className={buttonClasses.join(" ")}
           >
             Login
           </button>

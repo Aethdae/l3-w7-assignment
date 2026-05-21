@@ -1,6 +1,16 @@
 import React from "react";
 import LoginSplash from "./LoginSplash";
+import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
-export default function HomePage({ user }) {
-  return user ? <div>You are logged in</div> : <LoginSplash />;
+export default function HomePage({ session }) {
+  return (
+    <div>
+      {session ? (
+        <Dashboard session={session} logOut={logOut} />
+      ) : (
+        <LoginSplash />
+      )}
+    </div>
+  );
 }
